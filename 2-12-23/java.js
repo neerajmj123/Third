@@ -44,10 +44,22 @@
     console.log("reverse :",reverse);
 
 
-    let arrLetter =['a','b','C','D','e','g'];
-    let uppCase= [];
-    uppCase =arrLetter.toUpperCase();
+    
+}
+{
+    for(let i=1;i<=10;i++){
+        for(let j=1;j<=10;j++){
+            console.log(`${i}*${j}=${i*j}`)
+        }
+    }
     
 
-    
+    let str =''
+    for(let i=1;i<=10;i++){
+        for(let j=1;j<=i;j++){
+            str=str+'*';
+        }
+        str=str+'\n'
+    }
+    console.log(str)
 }
