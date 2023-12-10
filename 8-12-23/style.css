@@ -5,12 +5,36 @@
 }
 .calc{
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-auto-rows: 60px;
-    height: 900px;
-    width: 900px;
+    justify-content: center;
+    grid-template-columns: 90px 90px 90px 90px;
+    grid-auto-rows: 80px;
+    gap: 5px; 
+    margin-top: 20px;
+}
+
+.key{
+    background-color: black;
+    color: white;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.key:hover{
+    background-color: rgb(66, 64, 64);
+}
+.key-op{
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #inp{
     grid-column-start: 1;
+    grid-column-end: 5; 
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: buttonface;
+    border: 1px solid;
+}
+#equal{
+    grid-column-start: 1;
     grid-column-end: 5;
 }
+
