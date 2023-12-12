@@ -61,3 +61,102 @@
     }
     console.log(obj2)
 }
+{
+    let arr=[
+        {name:"neeraj",age:20,place:"Thrissur"},
+        {name:"bob",age:10,place:"pazhuvil"}
+]
+    arr.forEach((element,index,array)=>{
+        console.log("index:",index)
+        console.log(element)
+        console.log(array)
+    })
+
+    let findres = arr.find((element)=>{
+        return element.name=="bob"
+    })
+    console.log("result=",findres)
+
+
+    let filters=arr.filter((element,index)=>{
+        return element.age==20
+    })
+    console.log("filter=",filters)
+
+    let maping=arr.map((element)=>{
+        return element.place
+    })
+    console.log("maps=",maping)
+
+
+    let reduses=arr.reduce((total,element)=>{
+        return total + element.age
+    },0)
+    console.log("total age=",reduses)
+
+}
+{
+    let person = { 
+        firstName : "neeraj",
+        lastName : "M J",
+        age : 20,
+        getAge : function(){
+            console.log('age of ${this.firstName}is ${this.age}')
+        }
+    }
+    person.getAge()
+    console.log(this)
+
+    function greet(message,message2){
+        console.log(`${message}and${message2} ${this.firstName}`)
+    }
+let res = greet.bind(person,"hii","hey");
+console.log(res())
+}
+{
+    function person(name,age,mark){
+        this.name=name
+        this.age=age
+        this.mark =mark
+        this.greeting=function(){
+            console.log(`hai ${this.name},Your mark is ${this.mark}`)
+        }
+    }
+    let person1=new person("bob",10,25)
+    console.log("person",person1)
+    person1.greeting();
+
+    person.prototype.getAgeAndMark =function(){
+        console.log(`hello ${this.name},your age is ${this.age} and your mark is ${this.mark}`)
+    }
+    person1.getAgeAndMark();
+
+}   
+{
+    class person {
+        name;
+        age;
+        mark;
+
+        constructor(name,age,mark){
+            this.name=name
+            this.age=age
+            this.mark=mark
+        }
+        greeting(){
+            console.log(`hai ${this.name}`)
+        }
+    }
+    let person1 = new person("sqid",22,45)
+    console.log("person1",person1)
+    person1.greeting()
+    let person2 = new person("bob",21,55)
+    console.log("person",person2)
+    person1.greeting()
+
+    person.prototype.getAgeAndMark=function(){
+        console.log(`hello ${this.name}.your age is ${this.age} and your mark ${this.mark}`)
+    }
+    person1.getAgeAndMark();
+    person2.getAgeAndMark()
+}
