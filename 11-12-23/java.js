@@ -160,3 +160,57 @@ console.log(res())
     person1.getAgeAndMark();
     person2.getAgeAndMark()
 }
+
+    class mybutton {
+        button;
+        constructor(content){
+            this.button=document.createElement('button')
+            this.button.innerHTML=content
+            document.body.appendChild(this.button)
+        }
+        set width(width){
+            this.button.style.width=width+"px";
+        }
+        set height(height){
+            this.button.style.height=height+"px"
+        }
+        get width(){
+            return this.button.style.width
+        }
+        get height(){
+            return this.button.style.height
+        }
+
+        onClick(fn){
+            this.button.onclick=fn
+        }
+    }
+    let mynewbutton=new mybutton('click here')
+    console.log("myButton ",mybutton)
+
+    mybutton.width=150
+    mybutton.height=130
+     console.log("myButtoWidth ",mybutton.width)
+     console.log("myButtonHeight ",mybutton.height)
+
+     mybutton.onclick(function(){
+        console.log("button clicked")
+     })
+
+     class yellowButton extends mybutton{
+        onClick(fn){
+            this.button.onclick=function(){
+                fn()
+                this.button.style.background ="yellow"
+            }.bind(this)
+        }
+     }
+     let myyellowbtn =new yellowButton("yellow button")
+     myyellowbtn.width=150
+     myyellowbtn.height=130
+     console.log("myButtoWidth ",myyellowbtn.width)
+     console.log("myButtonHeight ",myyellowbtn.height)
+     myyellowbtn.onClick(function(){
+        console.log("button clicked")
+     })
+
