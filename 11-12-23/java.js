@@ -211,6 +211,50 @@ console.log(res())
      console.log("myButtoWidth ",myyellowbtn.width)
      console.log("myButtonHeight ",myyellowbtn.height)
      myyellowbtn.onClick(function(){
-        console.log("button clicked")
+        console.log("yellow button clicked")
      })
 
+// synchronous sigle threadead language
+
+console.log("first line")
+console.log("second line")
+
+setTimeout(()=>{
+    console.log("from setTimeOut")
+})
+
+// let datas = fetch('https://jsonplaceholder.typicode.com/users')
+// console.log("datas = ",datas)
+
+console.log("third line")
+
+// settimeout,setinterval this kind a moved to a web space enviornament 
+// main priority to console.log 
+// javascript engine - callback queue and microtask queue
+// with help of Event loop it moves to call Stack
+
+
+let xhr = new XMLHttpRequest()
+xhr.open("get",'https://jsonplaceholder.typicode.com/users')
+xhr.send()
+
+console.log("xhr",xhr)
+xhr.onereadystatechange = function(){
+    console.log("readyState",xhr.readyState)
+    console.log("statuscode",xhr.status)
+    if(xhr.readyState==4){
+        if(xhr.status==200){
+            let reponse = xhr.response
+            console.log("response",reponse)
+            console.log("typeof response",typeof(reponse))
+
+            let parced_response = JSON.parse(reponse)
+            console.log("parsed_response",parced_response)
+            console.log("type of parsed resonse",typeof(parced_response))
+        }else{
+            console.log("failed")
+        }
+    }else{
+        console.log("satus not completed")
+    }
+}
