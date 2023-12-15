@@ -219,9 +219,9 @@ console.log(res())
 console.log("first line")
 console.log("second line")
 
-setTimeout(()=>{
-    console.log("from setTimeOut")
-})
+// setTimeout(()=>{
+//     console.log("from setTimeOut")
+// })
 
 // let datas = fetch('https://jsonplaceholder.typicode.com/users')
 // console.log("datas = ",datas)
@@ -235,22 +235,38 @@ console.log("third line")
 
 
 let xhr = new XMLHttpRequest()
+let btn= document.getElementById('btn')
+btn.addEventListener('click' ,()=>{
+    xhr.send()
+})
 xhr.open("get",'https://jsonplaceholder.typicode.com/users')
-xhr.send()
 
 console.log("xhr",xhr)
-xhr.onereadystatechange = function(){
+xhr.onreadystatechange = function(){
     console.log("readyState",xhr.readyState)
     console.log("statuscode",xhr.status)
+    let content =document.getElementById('content')
     if(xhr.readyState==4){
         if(xhr.status==200){
-            let reponse = xhr.response
-            console.log("response",reponse)
-            console.log("typeof response",typeof(reponse))
+            let response = xhr.response
+            console.log("response",response)
+            console.log("typeof response",typeof(response))
 
-            let parced_response = JSON.parse(reponse)
+            let parced_response = JSON.parse(response)
             console.log("parsed_response",parced_response)
             console.log("type of parsed resonse",typeof(parced_response))
+
+            datas=''
+            for(let i=0;i<parced_response.length;i++){
+                datas=datas+`
+                <tr>
+                <td>${parced_response[i].id}</td>
+                <td>${parced_response[i].name}</td>
+                <td>${parced_response[i].username}</td>
+                <td>${parced_response[i].website}</td>
+                </tr>`
+            }
+            content.innerHTML=datas
         }else{
             console.log("failed")
         }

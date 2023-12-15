@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+}
+.img1{
+    width: 150px;
+    height: 150px;
+    margin-top: 30px;
+}
+.container-txt{
+    margin-left: 50px;
+}
+.container-mid{
+    display: flex;
+}
