@@ -16,6 +16,14 @@
 .container-txt{
     margin-left: 50px;
 }
-.container-mid{
+#items{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card1{
+    text-align: center;
+}
+.id{
+    font-size: medium;
 }
