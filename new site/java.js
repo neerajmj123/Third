@@ -13,9 +13,7 @@ xhr.onreadystatechange = function(){
     for(let i=0;i<parced_response.length;i++){
          datas=datas+`
          <div class="card1">
-        <h3 class="id">${parced_response[i].id}</h3>
         <h3 class="title">${parced_response[i].title}</h3>
-        <p class="des">${parced_response[i].description}</p>
         <img src="${parced_response[i].image}" alt="">
         <h5 class="rat">${parced_response[i].rating}</h5>
        </div>`

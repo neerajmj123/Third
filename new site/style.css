@@ -3,27 +3,56 @@
     box-sizing: border-box;
     padding: 0;
 }
+.navbar{
+    text-align: center;
+    background-color: rgb(117, 158, 144);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 10px;
+}
+.navbar ul,li{
+    display: inline;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    margin: 5px;
+}
+.navbar li{
+    border-right: 2px solid white;
+    padding-right: 40px;
+}
 .container{
     display: flex;
     justify-content: center;
     align-items:center ;
 }
-.img1{
-    width: 150px;
-    height: 150px;
-    margin-top: 30px;
-}
 .container-txt{
     margin-left: 50px;
+}
+.headline-1{
+    font-size: 65px;
 }
 #items{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content:space-evenly;
+    text-align: center;
+    height: 45%;
+
 }
 .card1{
-    text-align: center;
+    
 }
 .id{
-    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
 }
+.title{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+}
+.des{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin: 50px;
+}
+
