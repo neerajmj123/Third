@@ -12,11 +12,13 @@ xhr.onreadystatechange = function(){
      datas=''
     for(let i=0;i<parced_response.length;i++){
          datas=datas+`
-         <div class="product">
-            <img src="${parced_response[i].image}" alt="Product 1">
-            <h3>${parced_response[i].title}</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <span>$29.99</span>
+         <div class="card">
+      <h3 class="title">${parced_response[i].title}</h3>
+      <img src=${parced_response[i].image} alt="image" class="image">
+      <p>${parced_response[i].category}</p>
+      <p class="price">₹${parced_response[i].price}</p>
+      <button class="btn">Add Cart</button>
+    </div>
          `
             }
             items.innerHTML=datas
