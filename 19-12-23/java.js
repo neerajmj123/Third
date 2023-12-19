@@ -75,7 +75,7 @@ console.log("result 16 ", result16)
 
 
 {
-    const regexpinp =/[a-z][a-z0-9]_*$/i
+    const regexpinp =/[a-z][a-z0-9_]*$/i
     function checkResult(value){
         const result = regexpinp.test(value)
         if(result){
@@ -85,5 +85,15 @@ console.log("result 16 ", result16)
         }
     }
     const value = "_j_9ashdjd"
-    let val
+    let validation_result = checkResult(value)
+    console.log("validation_result",validation_result)
+    function onChange(arg){
+        let validation_result=checkResult(arg.value)
+        let label = document.getElementById('error')
+        if(validation_result){
+            label.innerHTML =validation_result
+        }else{
+            label.innerHTML =validation_result
+        }
+    }
 }

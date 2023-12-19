@@ -16,7 +16,7 @@ xhr.onreadystatechange = function(){
       <h3 class="title">${parced_response[i].title}</h3>
       <img src=${parced_response[i].image} alt="image" class="image">
       <p>${parced_response[i].category}</p>
-      <p class="price">₹${parced_response[i].price}</p>
+      <p class="price">$${parced_response[i].price}</p>
       <button class="btn">Add Cart</button>
     </div>
          `

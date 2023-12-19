@@ -64,9 +64,12 @@ body {
   width: 23%;
   text-align: center;
   padding: 1.5em;
+  box-shadow: 0 0 4px 3px #E2D1F9 ;
+  margin-bottom: 2em;
+  margin-top: 2em;
 }
 .title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #317773;
 }
 .category,.price {
@@ -84,7 +87,7 @@ body {
   border-radius: 5px;
 }
 .image {
-  width: 80%;
+  width: 50%;
 }
 footer {
   display: flex;
