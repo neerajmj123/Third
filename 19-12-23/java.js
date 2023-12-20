@@ -136,17 +136,43 @@ const result30 = regexp30.test(str5)
 console.log("result30 ",result30)//true
 
 //Date validation
-        const regexpDate1 =/^([012]?\d|3[01])-([0]\d|[1][012])-(\d{4})$/i
-        const regexpDate =/^\d{1,2}-\d{1,2}-\d{4}$/i
+        // const regexpDate1 =/^([012]?\d|3[01])-([0]\d|[1][012])-(\d{4})$/i
+        // const regexpDate =/^\d{1,2}-\d{1,2}-\d{4}$/i
+        // function checkResult(value){
+        //     const result = regexpDate1.test(value)
+        //     if(result){
+        //         return '';
+        //     }else{
+        //         return 'Invalid String'
+        //     }
+        // }
+        // const value = "16-12-2023"
+
+        // let validation_result = checkResult(value)
+        // console.log("validation_result",validation_result)
+
+        // function onChange(arg){
+        //     let validation_result=checkResult(arg.value)
+        //     let label = document.getElementById('error')
+        //     if(validation_result){
+        //         label.innerHTML =validation_result
+        //     }else{
+        //         label.innerHTML =validation_result
+        //     }
+        // }
+
+        // Email validation
+
+        const regexpMail =/^[a-z0-9]+@[a-z]+(\.[a-z])*$/i
         function checkResult(value){
-            const result = regexpDate1.test(value)
+            const result = regexpMail.test(value)
             if(result){
                 return '';
             }else{
                 return 'Invalid String'
             }
         }
-        const value = "16-12-2023"
+        const value = "example1@email.com"
 
         let validation_result = checkResult(value)
         console.log("validation_result",validation_result)
@@ -160,4 +186,3 @@ console.log("result30 ",result30)//true
                 label.innerHTML =validation_result
             }
         }
-    
