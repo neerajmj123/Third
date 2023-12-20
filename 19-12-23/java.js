@@ -73,27 +73,91 @@ const regexp16 =/fish.*$/i
 const result16 = regexp16.test(str3)
 console.log("result 16 ", result16)
 
+//Form validation
 
-{
-    const regexpinp =/[a-z][a-z0-9_]*$/i
-    function checkResult(value){
-        const result = regexpinp.test(value)
-        if(result){
-            return '';
-        }else{
-            return 'Invalid String'
+// {
+//     const regexpinp =/[a-z][a-z0-9_]*$/i
+//     function checkResult(value){
+//         const result = regexpinp.test(value)
+//         if(result){
+//             return '';
+//         }else{
+//             return 'Invalid String'
+//         }
+//     }
+//     const value = "_j_9ashdjd"
+//     let validation_result = checkResult(value)
+//     console.log("validation_result",validation_result)
+//     function onChange(arg){
+//         let validation_result=checkResult(arg.value)
+//         let label = document.getElementById('error')
+//         if(validation_result){
+//             label.innerHTML =validation_result
+//         }else{
+//             label.innerHTML =validation_result
+//         }
+//     }
+// }
+
+//20-12-23
+
+ const str5 = "hel.lo"
+
+const regexp23= /L{2}o$/i
+const result23 = regexp23.test(str5)
+console.log("result 23 =",result23)// true
+
+const regexp24 = /L{2,4}o$/i
+const result24 = regexp24.test(str5)
+console.log("result24 ",result24)//true
+
+const regexp25 =/Hel{2,4}0$/i
+const result25 =regexp25.test(str5)
+console.log("result25 =",result25)//false
+
+const regexp26 =/Hel{2,}0$/i
+const result26 =regexp26.test(str5)
+console.log("result26 =",result26) //false
+
+const regexp27 =/\d/i// any digits
+const result27 = regexp27.test(str5)
+console.log("result27 ",result27)//false
+
+const regexp28 =/\D/i//non digit
+const result28 = regexp28.test(str5)
+console.log("result28 ",result28)//true
+
+const regexp29 =/\./i // for mathing "." in string
+const result29 = regexp29.test(str5)
+console.log("result29 ",result29)//true
+
+const regexp30 =/./i
+const result30 = regexp30.test(str5)
+console.log("result30 ",result30)//true
+
+//Date validation
+        const regexpDate1 =/^([012]?\d|3[01])-([0]\d|[1][012])-(\d{4})$/i
+        const regexpDate =/^\d{1,2}-\d{1,2}-\d{4}$/i
+        function checkResult(value){
+            const result = regexpDate1.test(value)
+            if(result){
+                return '';
+            }else{
+                return 'Invalid String'
+            }
         }
-    }
-    const value = "_j_9ashdjd"
-    let validation_result = checkResult(value)
-    console.log("validation_result",validation_result)
-    function onChange(arg){
-        let validation_result=checkResult(arg.value)
-        let label = document.getElementById('error')
-        if(validation_result){
-            label.innerHTML =validation_result
-        }else{
-            label.innerHTML =validation_result
+        const value = "16-12-2023"
+
+        let validation_result = checkResult(value)
+        console.log("validation_result",validation_result)
+
+        function onChange(arg){
+            let validation_result=checkResult(arg.value)
+            let label = document.getElementById('error')
+            if(validation_result){
+                label.innerHTML =validation_result
+            }else{
+                label.innerHTML =validation_result
+            }
         }
-    }
-}
+    
