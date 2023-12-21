@@ -1,0 +1,1 @@
+import { printhello } from "./java2";
