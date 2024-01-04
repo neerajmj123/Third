@@ -23,6 +23,12 @@ const server = http.createServer((req,res) => {
     }else if (parsed_url.pathname === '/style.css'){
     res.writeHead(200,{'Content-Type' : "text/css"})
     res.end(fs.readFileSync("../client/style.css"))
+    }else if (parsed_url.pathname === '/add_user.html'){
+    res.writeHead(200,{'Content-Type' : "text/html"})
+    res.end(fs.readFileSync("../client/add_user.html"))
+    }else if (parsed_url.pathname === '/view_user.html'){
+    res.writeHead(200,{'Content-Type' : "text/html"})
+    res.end(fs.readFileSync("../client/view_user.html"))
     }
 
     if(req.method === "POST" && parsed_url.pathname === "/submit"){
@@ -56,6 +62,15 @@ const server = http.createServer((req,res) => {
             res.end("form submitted sucessfully")
         })
         
+    }
+    if(req.method === "GET" && parsed_url.pathname ==="/getdata"){
+        let data = await collection.find().toArray()
+        console.log("data :",data)
+        let json_data = JSON.stringify(data)
+        console.log("json_data",json_data)
+
+        res.writeHead(200,{"Content_Type":"text/json"})
+        res.end(json_data)
     }
 });
 async function connect(){

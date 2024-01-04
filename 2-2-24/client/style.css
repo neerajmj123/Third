@@ -2,3 +2,12 @@ form{
     background-color: bisque;
     height: 100%;
 }
+button{
+    background-color: cadetblue;
+    color: antiquewhite;
+    padding: 8px;
+    margin: 8px;
+}
+table,th,td{
+    border: 2px solid black;
+}
