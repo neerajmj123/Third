@@ -1,13 +1,18 @@
 form{
     background-color: bisque;
-    height: 100%;
+    
+}
+a{
+    text-decoration: none;
+    color: bisque;
+
 }
 button{
     background-color: cadetblue;
-    color: antiquewhite;
     padding: 8px;
     margin: 8px;
 }
 table,th,td{
     border: 2px solid black;
+    border-collapse: collapse;
 }
