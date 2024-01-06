@@ -48,7 +48,7 @@ const server = http.createServer(async (req, res) => {
             console.log("formData :", formData)
 
             console.log("name :", formData.name)
-            console.log("email ", formData.email)
+            console.log("email :", formData.email)
             console.log("password", formData.password)
 
             collection.insertOne(formData)
