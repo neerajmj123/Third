@@ -74,6 +74,12 @@ const server = http.createServer(async (req, res) => {
         res.writeHead(200, { "Content_Type": "text/json" })
         res.end(json_data)
     }
+    if(req.method === "PUT" && parsed_url.pathname === "/editData"){
+        let body = ""
+        req.on('data',(chunk)=>{
+            console.log("chunks")
+        })
+    }
 });
 async function connect() {
     await client.connect()

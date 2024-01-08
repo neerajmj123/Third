@@ -10,10 +10,11 @@ async function getuserData(){
         content=content+`
         <tr>
         <td>${parseduserData[i]._id}</td>
-        <td><input type="text" name="name" id="name"-${parseduserData[i]._id}" value =${parseduserData[i].name} disabled="true"</td>
-        <td><input type="email" name="email" id="email"-${parseduserData[i]._id}" value=${parseduserData[i].email} disabled="true"</td>
-        <td><input type="password" name="password" id="password"-${parseduserData[i]._id}"value=${parseduserData[i].password} disabled="true"</td>
+        <td><input type="text" name="name" id="name"-${parseduserData[i]._id}" value='${parseduserData[i].name}' disabled="true"></td>
+        <td><input type="email" name="email" id="email"-${parseduserData[i]._id}" value='${parseduserData[i].email}' disabled="true"></td>
+        <td><input type="password" name="password" id="password"-${parseduserData[i]._id}"value='${parseduserData[i].password}' disabled="true"></td>
         <td><button onclick="btnclick('${parseduserData[i]._id}')">Edit</button></td>
+        <td><button onclick="btnclicksave('${parseduserData[i]._id}')">Save</button></td>
         <tr>`
     }
     
@@ -22,18 +23,47 @@ async function getuserData(){
 getuserData();
 
 function btnclick(id){
-    let _id =id;
+    let _id = id;
     console.log("id:",_id)
 
     let name = document.getElementById(`name-${_id}`)
     console.log("name:",name)
-    name.disabled=false;
+    name.disabled = false
 
     let email=document.getElementById(`email-${_id}`)
     console.log("email:",email)
-    email.disabled=false
+    email.disabled = false
 
     let password=document.getElementById(`password-${_id}`)
     console.log("password",password)
-    password.disabled=false
+    password.disabled = false
+}
+async function btnclicksave(id){
+    console.log("id",id);
+    let name = document.getElementById(`name-${id}`).value;
+    console.log("name",name)
+
+    let email=document.getElementById(`email-${id}`).value;
+    console.log("email:",email)
+    
+
+    let password=document.getElementById(`password-${id}`).value;
+    console.log("password",password)
+
+    let data ={
+        id,
+        name,
+        email,
+        password,
+    }
+    let json_data=JSON.stringify(data);
+
+    await fetch('http://localhost:3000/editData',{
+        "method" : "PUT",
+        "headers": {
+            "Content-Type" : "text/json"
+        },
+        "body":json_data,
+        })
+
 }
