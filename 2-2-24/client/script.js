@@ -10,12 +10,12 @@ async function getuserData(){
         content=content+`
         <tr>
         <td>${parseduserData[i]._id}</td>
-        <td><input type="text" name="name" id="name"-${parseduserData[i]._id}" value='${parseduserData[i].name}' disabled="true"></td>
-        <td><input type="email" name="email" id="email"-${parseduserData[i]._id}" value='${parseduserData[i].email}' disabled="true"></td>
-        <td><input type="password" name="password" id="password"-${parseduserData[i]._id}"value='${parseduserData[i].password}' disabled="true"></td>
+        <td><input type="text" name="name" id="name-${parseduserData[i]._id}" value='${parseduserData[i].name}' disabled="true"></td>
+        <td><input type="email" name="email" id="email-${parseduserData[i]._id}" value='${parseduserData[i].email}' disabled="true"></td>
+        <td><input type="password" name="password" id="password-${parseduserData[i]._id}" value='${parseduserData[i].password}' disabled="true"></td>
         <td><button onclick="btnclick('${parseduserData[i]._id}')">Edit</button></td>
         <td><button onclick="btnclicksave('${parseduserData[i]._id}')">Save</button></td>
-        <tr>`
+        </tr>`
     }
     
     tbody.innerHTML=content

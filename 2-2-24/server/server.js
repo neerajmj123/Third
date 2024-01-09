@@ -2,7 +2,7 @@ const http = require('http');
 const url = require('url');
 const fs = require('fs');
 const queryString = require('querystring');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const { error } = require('console');
 let hostname = '127.0.0.1';
 const port = 3000;
@@ -77,7 +77,37 @@ const server = http.createServer(async (req, res) => {
     if(req.method === "PUT" && parsed_url.pathname === "/editData"){
         let body = ""
         req.on('data',(chunk)=>{
-            console.log("chunks")
+            console.log("chunks" ,chunk)
+            body= body+chunk.toString()
+            console.log("body",body)
+        })
+        req.on('end',async()=>{
+            console.log("body",body)
+            let data=JSON.parse(body);
+            let id = data.id;
+            console.log("id",id)
+            console.log("typeof(id)",typeof(id))
+            let _id = new ObjectId(id)
+            console.log("_id",_id)
+            console.log("typeof(_id)",typeof(_id))
+
+            let updateDatas ={
+                name : data.name,
+                email : data.email,
+                password : data.password,
+            }
+            await collection.updateOne({_id},{$set : updateDatas})
+            .then((message)=>{
+                console.log("Document Updated succesfully",message)
+                res.writeHead(200,{"Content-Type":"text/plain"})
+                res.end("Updated successfully")
+            })
+            .catch((error)=>{
+                console.log("Document not updated",error)
+                res.writeHead(200,{"Content-Type":"text/plain"})
+                res.end("Updation failed")
+            })
+            
         })
     }
 });
