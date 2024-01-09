@@ -15,6 +15,7 @@ async function getuserData(){
         <td><input type="password" name="password" id="password-${parseduserData[i]._id}" value='${parseduserData[i].password}' disabled="true"></td>
         <td><button onclick="btnclick('${parseduserData[i]._id}')">Edit</button></td>
         <td><button onclick="btnclicksave('${parseduserData[i]._id}')">Save</button></td>
+        <td><button onclick="btnclickDelete('${parseduserData[i]._id}')">Delete</button></td>
         </tr>`
     }
     
@@ -66,4 +67,25 @@ async function btnclicksave(id){
         "body":json_data,
         })
 
+}
+async function btnclickDelete(id){
+    console.log("id",id)
+    let response = await fetch ("http://localhost:3000/deleteData",{
+        "method":"DELETE",
+        "header":{
+            "Content-Type":"text/plain",
+        },
+        "body":id,
+    })
+        console.log("response",response)
+        let parsed_resonse =await response.text();
+        console.log("parsed_response",parsed_resonse)
+
+        if(parsed_resonse ==="success"){
+            alert("Deletion Successful")
+        }else{
+            alert("Deletion Failed")
+        }
+
+    
 }

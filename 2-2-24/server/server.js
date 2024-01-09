@@ -107,17 +107,42 @@ const server = http.createServer(async (req, res) => {
                 res.writeHead(200,{"Content-Type":"text/plain"})
                 res.end("Updation failed")
             })
-            
         })
+        
+    }
+    if(req.method === "DELETE" && parsed_url.pathname === "/deleteData"){
+        console.log("Reached delete route")
+
+        let body =""
+        req.on('data',(chunk)=>{
+            console.log("chunk",chunk)
+            body=body+chunk.toString()
+            console.log("body",body)
+        })
+        req.on('end',async()=>{
+            let _id=new ObjectId(body)
+            await collection.deleteOne({_id})
+            .then((message)=>{
+                console.log("Deletion Successful")
+                res.writeHead(200,{"Content-Type" :"text/plain"})
+                res.end("Success")
+            })
+            .catch((error)=>{
+                console.log("Deletion Failed")
+                res.writeHead(200,{"Content-Type":"text/plain"})
+                res.end("Failed")
+            })
+        })
+    
     }
 });
 async function connect() {
     await client.connect()
         .then((message) => {
-            console.log("database connection established")
+            console.log("Database connection established")
         })
         .catch((error) => {
-            console.log("database connection error ", error)
+            console.log("Database connection error ", error)
         })
         .finally(() => {
             server.listen(port, () => {
