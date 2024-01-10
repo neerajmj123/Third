@@ -10,15 +10,16 @@
     <div class="container">
         <h1>To-Do List</h1>
         <div id="task-form">
-            <input type="text" id="task-input" placeholder="Add a new task">
-            <button onclick="addTask()">Add</button>
+            <form method="post" action="/submit">
+                <input type="text" name="tasks" id="task-input" placeholder="Add a new task">
+                <button>Add</button>
+            </form>
         </div>
-        <ul id="task-list">
-            <li>task1</li>
-            <li>task2</li>
+        <ul id="tasklist">
+            <li>task1 <button>Delete</button> </li>
+            <li>task2 <button>Delete</button></li>
         </ul>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-!
