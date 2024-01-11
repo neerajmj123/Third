@@ -8,7 +8,7 @@ const hostname = '127.0.0.1';
 const port = 4050;
 
 const client = new MongoClient("mongodb://127.0.0.1:27017")
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
 
   const db = client.db("tasks")
   const collection = db.collection("task_list")
@@ -52,7 +52,15 @@ const server = http.createServer((req, res) => {
     res.end("task addded  succesfully")
   })
 }
-  
+if (req.method === "GET" && parsed_url.pathname === "/getData") {
+  let data = await collection.find().toArray();
+  console.log("data :", data)
+  let json_data = JSON.stringify(data)
+  console.log("json_data", json_data)
+
+  res.writeHead(200, { "Content_Type": "text/json" })
+  res.end(json_data)
+}  
 
 });
 async function connect() {
