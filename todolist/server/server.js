@@ -23,7 +23,10 @@ const server = http.createServer(async (req, res) => {
   }else if (parsed_url.pathname === '/style.css') {
     res.writeHead(200, { 'Content-Type': "text/css"})
     res.end(fs.readFileSync("../client/style.css"))
-  }
+  }else if (parsed_url.pathname === '/script.js') {
+    res.writeHead(200, { 'Content-Type': "text/javascript"})
+    res.end(fs.readFileSync("../client/script.js"))
+}
   if (req.method === "POST" && parsed_url.pathname === "/submit") {
     console.log("Form Submitted Sucessfully")
     let body = '';
@@ -61,6 +64,62 @@ if (req.method === "GET" && parsed_url.pathname === "/getData") {
   res.writeHead(200, { "Content_Type": "text/json" })
   res.end(json_data)
 }  
+  if (req.method === "PUT" && parsed_url.pathname === "/editData") {
+    let body = ""
+    req.on('data', (chunk) => {
+      console.log("chunks", chunk)
+      body = body + chunk.toString()
+      console.log("body", body)
+    })
+    req.on('end', async () => {
+      console.log("body", body)
+      let data = JSON.parse(body)
+      let id = data.id
+      console.log("id", id)
+      let _id = new ObjectId(id)
+      console.log("_id", _id)
+
+      let updateTask = {
+        tasks: data.tasks,
+      }
+      await collection.updateOne({ _id }, { $set: updateTask })
+        .then((message) => {
+          console.log("Document Updated succesfully", message)
+          res.writeHead(200, { "Content-Type": "text/plain" })
+          res.end("Updated successfully")
+        })
+        .catch((error) => {
+          console.log("Document not updated", error)
+          res.writeHead(200, { "Content-Type": "text/plain" })
+          res.end("Updation failed")
+        })
+    })
+  }
+if(req.method === "DELETE" && parsed_url.pathname === "/deleteData"){
+  console.log("Reached delete route")
+
+  let body =""
+  req.on('data',(chunk)=>{
+      console.log("chunk",chunk)
+      body=body+chunk.toString()
+      console.log("body",body)
+  })
+  req.on('end',async()=>{
+      let _id=new ObjectId(body)
+      await collection.deleteOne({_id})
+      .then((message)=>{
+          console.log("Deletion Successful")
+          res.writeHead(200,{"Content-Type" :"text/plain"})
+          res.end("Success")
+      })
+      .catch((error)=>{
+          console.log("Deletion Failed")
+          res.writeHead(200,{"Content-Type":"text/plain"})
+          res.end("Failed")
+      })
+  })
+
+}
 
 });
 async function connect() {
