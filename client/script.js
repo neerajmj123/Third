@@ -1,6 +1,6 @@
 console.log("hai")
 async function getuserData(){
-    let userData = await fetch ('http://localhost:3000/getData')
+    let userData = await fetch ('http://localhost:5000/getData')
     console.log("userData",userData)
     let parseduserData =await userData.json()
     console.log("parsedUserdata",parseduserData)
@@ -10,9 +10,9 @@ async function getuserData(){
         content=content+`
         <tr>
         <td>${parseduserData[i]._id}</td>
-        <td><input type="text" name="name" id="name"-${parseduserData[i]._id}" value='${parseduserData[i].name}' disabled="true"></td>
-        <td><input type="email" name="email" id="email"-${parseduserData[i]._id}" value='${parseduserData[i].email}' disabled="true"></td>
-        <td><input type="password" name="password" id="password"-${parseduserData[i]._id}"value='${parseduserData[i].password}' disabled="true"></td>
+        <td><input type="text" name="name" id="name-${parseduserData[i]._id}" value='${parseduserData[i].name}' disabled="true"></td>
+        <td><input type="email" name="email" id="email-${parseduserData[i]._id}" value='${parseduserData[i].email}' disabled="true"></td>
+        <td><input type="password" name="password" id="password-${parseduserData[i]._id}"value='${parseduserData[i].password}' disabled="true"></td>
         <td><button onclick="btnclick('${parseduserData[i]._id}')">Edit</button></td>
         <td><button onclick="btnclicksave('${parseduserData[i]._id}')">Save</button></td>
         <tr>`
@@ -58,7 +58,7 @@ async function btnclicksave(id){
     }
     let json_data=JSON.stringify(data);
 
-    await fetch('http://localhost:3000/editData',{
+    await fetch('http://localhost:5000/editData',{
         "method" : "PUT",
         "headers": {
             "Content-Type" : "text/json"
