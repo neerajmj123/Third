@@ -42,6 +42,7 @@ async function btnUpdate(id){
     console.log("id",id)
     let tasks = document.getElementById(`taskinput-${id}`).value;
     console.log("tasks",tasks)
+    // tasks.disabled = false
 
     let data = {
         tasks,
@@ -56,5 +57,6 @@ async function btnUpdate(id){
         "body":json_data
 
     })
+    
     
 }

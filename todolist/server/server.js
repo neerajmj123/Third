@@ -47,8 +47,8 @@ app.delete('/deleteData',async(req,res)=>{
 
     let id= data.id
     console.log("id",id)
-    let _id=new ObjectId(id)
-    await collection.deleteOne({_id})
+    let _id = new ObjectId(id)
+    await collection.deleteOne({id})
     .then((message)=>{
         console.log("deletion successful",message)
         res.status(200).send('Success')
@@ -58,19 +58,28 @@ app.delete('/deleteData',async(req,res)=>{
         res.status(401).send('Failed')
     })
 })
+app.put('/editData',async(req,res)=>{
+    let data = req.body
+    console.log("data",data)
 
+    let id= data.id
+    console.log("id",id)
+    let _id = new ObjectId(id)
+    console.log("_id",_id)
 
-
-
-
-
-
-
-
-
-
-
-
+    let updateDatas ={
+        tasks : data.tasks,
+    }
+    await collection.updateOne({_id},{$set : updateDatas})
+    .then((message)=>{
+        console.log("document updated sucessfully",message)
+        res.status(200).send('success')
+    })
+    .catch((error)=>{
+        console.log("document updation failed",error)
+        res.status(400).send('failed')
+    })
+})
 
 
 
