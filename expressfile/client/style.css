@@ -1,0 +1,18 @@
+form{
+    background-color: bisque;
+    
+}
+a{
+    text-decoration: none;
+    color: bisque;
+
+}
+button{
+    background-color: cadetblue;
+    padding: 8px;
+    margin: 8px;
+}
+table,th,td{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
