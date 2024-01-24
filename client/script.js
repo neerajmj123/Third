@@ -112,7 +112,7 @@ function validateName(){
 function validateEmail(){
     let email = document.getElementById('email').value
     let email_error= document.getElementById('email-error')
-    let email_regex=/$/
+    let email_regex=/^[a-z0-9-_]*@([a-z0-9]+)*(\.[a-z]{})/
     let isemailvalid=email_regex.test(email)
     console.log("isemailvalid",isemailvalid)
 
@@ -120,7 +120,22 @@ function validateEmail(){
         email_error.innerHTML="Invalid Email"
         return
     }else{
-        name_error.innerHTML=""
+        email_error.innerHTML=""
+        return
+    }
+}
+function validatePwd(){
+    let password = document.getElementById('password').value
+    let password_error= document.getElementById('password-error')
+    let password_regex=/^[a-z0-9_@\.]{6,}$/
+    let ispasswordvalid=password_regex.test(password)
+    console.log("ispasswordvalid",ispasswordvalid)
+
+    if(!ispasswordvalid){
+        password_error.innerHTML="Invalid Password"
+        return
+    }else{
+        password_error.innerHTML=""
         return
     }
 }
