@@ -10,9 +10,9 @@
     <form method="post" action="/submit">
         <input type="name" name="name" id="name" placeholder="Name" onkeyup="validateName()">
         <div id="name-error"></div>
-        <input type="email" name="email" id="email" placeholder="Email" onkeyup="validteEmail()">
+        <input type="email" name="email" id="email" placeholder="Email" onkeyup="validateEmail()">
         <div id="email-error"></div>
-        <input type="password" name="password" id="password" placeholder="Password">
+        <input type="password" name="password" id="password" placeholder="Password" onkeyup="validatePwd()">
         <div id="password-error"></div>
         <button type="button" onclick="submitform()" id="submit">submit</button>
     </form> 
