@@ -4,7 +4,7 @@ const error_function = require('../util/response-handler').error_function
 exports.createUser = async function (req,res){
     try {
         const datas = req.body
-        const isUserExist = await users.findone({email : datas.email})
+        const isUserExist = await users.findOne({email : datas.email})
         console.log("isUserExist",isUserExist)
 
         if(isUserExist){
