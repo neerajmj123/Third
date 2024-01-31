@@ -42,15 +42,9 @@ exports.createUser = async function (req,res){
         return;
     }
 }
-async function getuserData(){
-    try {
-
-
-        
-    } catch (error) {
-        
-    }
-
+ exports.getuserData = async function (req,res){
+        const users = await model.find();
+        res.status(200).json(users)
 }
 async function editData(){
 
