@@ -43,7 +43,7 @@ exports.createUser = async function (req,res){
         return;
     }
 }
- exports.getuserData = async function (req,res){
+ exports.getData = async function (req,res){
         try {
             const user = await users.find()
 
@@ -54,7 +54,7 @@ exports.createUser = async function (req,res){
             }
         } catch (error) {
             console.error("users canot be fetch",error)
-            res.status(400).send("data not found")exports
+            res.status(400).send("data not found")
         }
 }
 exports.editData = async function ( res,req){
@@ -76,7 +76,7 @@ exports.editData = async function ( res,req){
 
  if(isUserExist){
     let response= error_function({
-        statusCode : 400;
+        statusCode : 400,
         message : "user already exist ",
     })
     res.status(response.statusCode).send(response)
@@ -107,7 +107,7 @@ console.log("_id",_id)
 users.findByIdAndDelete(_id)
 .then((message)=>{
     console.log("deleted sucessfully")
-    res.status(200).send("success")
+    res.status(200).send("Success")
 })
 .catch((error)=>{
     console.log("delted succesfully")

@@ -12,7 +12,7 @@ async function submitform(){
         password,
     }
     let json_data = JSON.stringify(data)
-    let response = await fetch('/submit',{
+    let response = await fetch('http://locahost:4301/submit',{
         "method":"POST",
         "headers":{
             "Content-Type":"application/json",
@@ -106,7 +106,7 @@ async function btnclicksave(id){
     }
     let json_data=JSON.stringify(data);
 
-    await fetch('http://localhost:4300/editData',{
+    await fetch('http://localhost:4301/editData',{
         "method" : "PUT",
         "headers": {
             "Content-Type" : "text/json"
@@ -157,6 +157,40 @@ async function btnclicksave(id){
         return
     }else{
         password_error.innerHTML=""
+        return
+    }
+}
+async function login(){
+    let email = document.getElementById('login_email').value
+    console.log('email',email)
+    let password = document.getElementById('login_password').value
+    console.log('password',password)
+    let datas = {
+        email,
+        password,
+    }
+    let json_datas = JSON.stringify(datas)
+    console.log("json_datas",json_datas)
+    let response = await fetch('http://localhost:4301/login',{
+        method:'POST',
+        headers :{
+            "Content-Type" :"application/json",
+        },
+        body : json_datas,
+    })
+    let parsed_resonse = await response.json()
+    console.log("parsed response",parsed_resonse)
+
+    if(parsed_resonse.success){
+        let token = parsed_resonse.data
+        console.log("token".token)
+
+        localStorage.setItem('token',token)
+        window.location.href = 'view_user.html'
+        alert(parsed_resonse.message)
+        return
+    }else{
+        alert(parsed_resonse.message)
         return
     }
 }
