@@ -12,7 +12,7 @@ async function submitform(){
         password,
     }
     let json_data = JSON.stringify(data)
-    let response = await fetch('http://locahost:4301/submit',{
+    let response = await fetch('http://localhost:4301/submit',{
         "method":"POST",
         "headers":{
             "Content-Type":"application/json",
@@ -23,6 +23,7 @@ async function submitform(){
     console.log("parsed_response",parsed_response)
     if(parsed_response.success){
         alert('form submited sucessfully')
+        window.location.href="login.html"
     }else{
         alert(parsed_response.message)
     }
