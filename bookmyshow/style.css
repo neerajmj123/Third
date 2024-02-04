@@ -90,3 +90,10 @@ align-items: center;
 margin-inline-start: 10px;
 font-size: 14px;
 }
+#first-cont{
+    background-color:  rgb(235, 235, 235)
+}
+.cards{
+    display: flex;
+
+}
