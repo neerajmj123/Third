@@ -74,6 +74,7 @@ color:black;
 align-items: center;
 margin-inline-start: 10px;
 font-size: 14px;
+padding: 5px;
 }
 .sec-right{
     display: flex;
@@ -93,7 +94,19 @@ font-size: 14px;
 #first-cont{
     background-color:  rgb(235, 235, 235)
 }
-.cards{
+.movies-photo{
     display: flex;
+}
+.movies-photo-sub{
+    display: flex;
+}
+.movies-photo-sub-1{
+    display: flex;
+    justify-content: space-around;
+
+}
+.movies-photo-sub-1 img{
+    border-radius: 10px;
+    width: 75%;
 
 }
