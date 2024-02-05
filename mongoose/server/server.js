@@ -46,7 +46,7 @@ app.get('/getData',async(req,res)=>{
     const users = await model.find();
     res.status(200).json(users)
 })
-app.
+
 async function connect(){
     try{
         await mongoose.connect('mongodb://127.0.0.1:27017/newums')
