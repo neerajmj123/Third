@@ -29,9 +29,9 @@ const model = mongoose.model("Film",schema)
 app.post('/submit',async(req,res)=>{
     let data = req.body
     console.log("data",data)
-    const filmexist = await model.findOne({name:data.name})
-    console.log("filmexist",filmexist)
-    if(filmexist){
+    const isfilmexist = await model.findOne({name: data.name})
+    console.log("isfilmexist",isfilmexist) 
+    if(isfilmexistfilmexist){
         res.status(400).send("Film already added")
         return
     }

@@ -1,15 +1,19 @@
 const express = require('express')
 const app = express()
 const mongoose =require('mongoose')
+
 let dotenv= require('dotenv')
 const e = require('express')
 const { error } = require('console')
+const { extname } = require('path')
 dotenv.config()
 let port = process.env.PORT
 
 app.use(express.static(__dirname +"/../client"))
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
+
+
 
 let schema = new mongoose.Schema({
     name :{
@@ -24,6 +28,8 @@ let schema = new mongoose.Schema({
         type : String,
         required :true
     }
+
+    
 })
 
 const model = mongoose.model("users",schema)
