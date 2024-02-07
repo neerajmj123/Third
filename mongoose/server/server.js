@@ -50,12 +50,14 @@ app.post('/submit',async(req,res)=>{
     if (isUserExist){
         return res.status(400).send('user already exist')
     }
+
     const uploadPhoto = path.join(__dirname,'uploads')
     if(!fs.existsSync(uploadPhoto)){
         fs.mkdirSync(uploadPhoto)
     }
-    const imageBuffer = Buffer.from(base64image,'base64')
-    const fileName = `${Date.now()}.png`
+    const imageBuffer = Buffer.from(base64image.replace(/^data:image\/\w+;base64,/,''),'base64')
+    const fileExtention = base64image.split(';')[0].split('/')[1]
+    const fileName = `${Date.now()}.${fileExtention}`
     const filePath = path.join(uploadPhoto,fileName)
     fs.writeFileSync(filePath,imageBuffer)
 
