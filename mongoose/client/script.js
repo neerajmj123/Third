@@ -11,9 +11,9 @@ async function submitform() {
     console.log("image", image)
 
     if (image.files && image.files[0]) {
-        let reader = new FileReader()
-        reader.onload = function (e) {
-            let base64image = e.target.result;
+        const reader = new FileReader()
+        reader.onload = async function(e) {
+            const base64image = e.target.result;
             console.log("base64",base64image)
 
             let data = {
@@ -22,20 +22,26 @@ async function submitform() {
                 password,
                 base64image,
             }
-            let json_data = JSON.stringify(data)
-            let response = fetch('/submit', {
-                "method": "POST",
+            let json_data = JSON.stringify(data) 
+            try {
+                let response = await fetch('http://localhost:4300/submit',{
+                    "method": "POST",
                 "headers": {
                     "Content-Type": "application/json",
                 },
                 "body": json_data,
-            })
-            let parsed_response = response.text()
+                })
+
+            let parsed_response = await response.text()
             if (parsed_response === "success") {
                 alert('form submited sucessfully')
             } else {
                 alert("form submission failed")
             }
+            } catch (error) {
+                console.error("error",error)
+                alert("something wrong")
+            }   
         }
         reader.readAsDataURL(image.files[0]);
     }
