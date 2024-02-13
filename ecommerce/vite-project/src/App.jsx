@@ -1,12 +1,11 @@
 import React,{useState} from "react"
-import Login from "./Components/Auth/Login"
-import Signup from "./Components/Auth/Signup"
+import Landing from "./Components/Landing/Landing"
+
 function App() {
 
   return (
     <>
-      <Login/>
-      <Signup/>
+       <Landing/>
     </>
   )
 }
