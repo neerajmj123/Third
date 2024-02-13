@@ -1,17 +1,34 @@
 import React,{useState} from "react";
 function Input({onsubmit}){
-    const [name,setName]= useState('');
+    const [data,setData]= useState({
+        name :'',
+        email :'',
+    });
     const onSubmit = (e) =>{
         e.preventDefault();
-        onsubmit(name);
+        onsubmit(data);
     }
     const handleInputChange = (e) =>{
-        setName(e.target.value)
+
+        if(e.target.name === "name"){
+            setData({
+                ...data,
+                name : e.target.value,
+            })
+        }
+        if(e.target.name === "email"){
+            setData({
+                ...data,
+                email: e.target.value,
+            })
+        }
     }
     return(
         <>
         <form onSubmit ={onSubmit}>
-            <input type="text" name="name" id="name"  placeholder="enter your name" onChange={handleInputChange}/>
+            <input type="text" name="name"   placeholder="enter your name" onChange={handleInputChange}/>
+            <input type="text" name="email"  placeholder="enter your email" onChange={handleInputChange}/>
+
             <input type="submit" />
         </form>
         </>
