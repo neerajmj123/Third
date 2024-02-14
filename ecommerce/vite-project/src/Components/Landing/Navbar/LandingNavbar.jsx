@@ -1,7 +1,7 @@
  import './LandingNavbar.css'
  function LandingNavbar(){
     return(
-        <>
+        
         <div className="navbar">
     <ul className="link">
       <li>
@@ -21,7 +21,6 @@
     Get Started
   </a>
   </div>
-        </>
     )
 }
 export default LandingNavbar;
