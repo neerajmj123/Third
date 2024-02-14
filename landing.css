@@ -23,10 +23,40 @@ a:hover{
 }
 .navbar{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
 }
 .navbar .link{
 display: flex;
 gap: 2rem;
+}
+.action-btn{
+    background-color: rgb(130, 107, 79);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.action-btn :hover{
+    color: white;
+}
+.logo{
+    width: 25px;
+    margin-left: 150px;
+}
+.wrapper{
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+}
+.wrapper h1{
+    text-align: center;
+
+}
+.wrapper .input-box{
+    
 }

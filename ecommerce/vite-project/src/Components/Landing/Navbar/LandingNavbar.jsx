@@ -17,6 +17,9 @@
         <a href="">Contact</a>
       </li>
     </ul>
+    <a href="#" className="action-btn">
+    Get Started
+  </a>
   </div>
         </>
     )

@@ -23,10 +23,23 @@ a:hover{
 }
 .navbar{
     display: flex;
-    justify-content: center;
-    padding: 1rem;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+    padding: 3rem;
 }
 .navbar .link{
 display: flex;
 gap: 2rem;
+}
+.action-btn{
+    background-color: rgb(130, 107, 79);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.action-btn :hover{
+    color: white;
 }
