@@ -1,0 +1,35 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+.wrapper{
+    width: 420px;
+    color: rgb(0, 0, 0);
+    /* background-color: rgb(59, 18, 97); */
+}
+.wrapper h1{
+    text-align: center;
+
+}
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50%;
+    margin: 30px 0;
+
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    padding: 20px ;
+
+}
+.wrapper button{
+    width: 100%;
+    height: 45px;
+    border-radius: 25px;
+}
