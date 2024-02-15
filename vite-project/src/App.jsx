@@ -5,7 +5,11 @@
 // import Login from "./components/Login/Login"
 // import Login1 from "./components/Login/Login1"
 // import Controlled from "./components/ControlledandUncontrolled/controlled"
-import Uncontrolled from "./components/ControlledandUncontrolled/Uncontrolled"
+// import Uncontrolled from "./components/ControlledandUncontrolled/Uncontrolled"
+// import MyComponentWithUpperCase from "./components/HigherOrderComponents/MyComponentWithUpperCase"
+// import MyComponent1 from "./components/PureComponents/MyPureComponents1"
+// import MyPureComponents from "./components/PureComponents/MyPureComponents"
+import BasicRouting from "./components/Router/BasicRouting"
 function App() {
   return (
     <>
@@ -16,7 +20,11 @@ function App() {
       {/* <Login/> */}
       {/* <Login1/> */}
       {/* <Controlled/> */}
-      <Uncontrolled/>
+      {/* <Uncontrolled/> */}
+      {/* <MyComponentWithUpperCase text={"neeraj"}/> */}
+      {/* <MyComponent1/> */}
+      {/* <MyPureComponents/> */}
+      <BasicRouting/>
     </>
   )
 }
