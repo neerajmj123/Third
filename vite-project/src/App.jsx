@@ -9,7 +9,8 @@
 // import MyComponentWithUpperCase from "./components/HigherOrderComponents/MyComponentWithUpperCase"
 // import MyComponent1 from "./components/PureComponents/MyPureComponents1"
 // import MyPureComponents from "./components/PureComponents/MyPureComponents"
-import BasicRouting from "./components/Router/BasicRouting"
+// import BasicRouting from "./components/Router/BasicRouting"
+import NestedRouting from "./components/NestedRouting/NestedRouting"
 function App() {
   return (
     <>
@@ -24,7 +25,8 @@ function App() {
       {/* <MyComponentWithUpperCase text={"neeraj"}/> */}
       {/* <MyComponent1/> */}
       {/* <MyPureComponents/> */}
-      <BasicRouting/>
+      {/* <BasicRouting/> */}
+      <NestedRouting/>
     </>
   )
 }
