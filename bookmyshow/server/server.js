@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+const fs = require('fs')
+const path = require('path')
 let dotenv= require('dotenv')
 const exp = require('constants')
 const mongoose= require('mongoose')
@@ -24,26 +26,46 @@ let schema = new mongoose.Schema({
         type :String,
         required:true,
     },
+    image :{
+        type:String,
+        required :true
+    }
 })
 const model = mongoose.model("Film",schema)
 app.post('/submit',async(req,res)=>{
-    let data = req.body
-    console.log("data",data)
-    const isfilmexist = await model.findOne({name: data.name})
-    console.log("isfilmexist",isfilmexist) 
-    if(isfilmexistfilmexist){
-        res.status(400).send("Film already added")
-        return
+    let {name,genre,director,base64image}=req.body
+    if(!name || !genre || !director || !base64image){
+        return res.status(400).send("enter all fields")
     }
-    await model.create(data)
-    .then((message)=>{
-        console.log("Film Added Successfully")
+    const isUserExist = await model.findOne({name:name})
+    if (isUserExist){
+        return res.status(400).send('user already exist')
+    }
+
+    const uploadPhoto = path.join(__dirname,'uploads')
+    if(!fs.existsSync(uploadPhoto)){
+        fs.mkdirSync(uploadPhoto)
+    }
+    const imageBuffer = Buffer.from(base64image.replace(/^data:image\/\w+;base64,/,''),'base64')
+    const fileExtention = base64image.split(';')[0].split('/')[1]
+    const fileName = `${Date.now()}.${fileExtention}`
+    const filePath = path.join(uploadPhoto,fileName)
+    fs.writeFileSync(filePath,imageBuffer)
+
+    try {
+        await model.create({
+            name:name,
+            genre:genre,
+            director:director,
+            image:filePath
+        })
+        console.log("document inserted successfully")
         res.status(201).send("success")
-    })
-    .catch((error)=>{
-        console.log("Film insertion failed")
-        res.status(400).send("Failed")
-    })
+    } catch (error) {
+        console.error("Document insertion failed")
+        res.status(400).send("failed to insert document")
+        
+    }
 })
 app.get('/getMovies',async(req,res)=>{
     const films = await model.find()
