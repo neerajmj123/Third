@@ -68,8 +68,14 @@ app.post('/submit',async(req,res)=>{
     }
 })
 app.get('/getMovies',async(req,res)=>{
+    try {
     const films = await model.find()
-    res.status(200).send(films);
+        res.status(200).json(films)
+    } catch (error) {
+        console.error('Error in loding data')
+    res.status(400).send("server error");
+
+    }
 })
 
 

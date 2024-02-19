@@ -10,7 +10,9 @@
 // import MyComponent1 from "./components/PureComponents/MyPureComponents1"
 // import MyPureComponents from "./components/PureComponents/MyPureComponents"
 // import BasicRouting from "./components/Router/BasicRouting"
-import NestedRouting from "./components/NestedRouting/NestedRouting"
+// import NestedRouting from "./components/NestedRouting/NestedRouting"
+// import BasicRouting1 from "./components/Router/BasicRouting1"
+import Parent from "./components/Hooks/Usecallback/Parent"
 function App() {
   return (
     <>
@@ -26,7 +28,9 @@ function App() {
       {/* <MyComponent1/> */}
       {/* <MyPureComponents/> */}
       {/* <BasicRouting/> */}
-      <NestedRouting/>
+      {/* <NestedRouting/> */}
+      {/* <BasicRouting1/>? */}
+      <Parent/>
     </>
   )
 }

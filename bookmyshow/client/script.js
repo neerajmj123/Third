@@ -48,7 +48,18 @@ async function submitform() {
 }
 
 async function getMoviesData(){
-    let movies=await fetch('/getMovies')
+    let movies=await fetch('/http://localhost:4101/getMovies')
     let parsed_Data = await movies.json()
-    let showmovies = document.getElementById("")
+    let showmovies = document.getElementById("cards")
+    let content =''
+    console.log("parsedData",parsed_Data);
+    for(let i=0;i<parsed_Data.length;i++){
+        content = content`
+        <div class ="cards">
+        <img src ="${parsed_Data[i].image}">
+        <h3 name="name" id="name-${parsed_Data[i].name}</h3>
+        < a href = "addedfil.html" onclick="addedfilm('${parsed_Data[i]}')">View all</a>
+        </div> `
+    }
+    showmovies.innerHTML = content;
 }

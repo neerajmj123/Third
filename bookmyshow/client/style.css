@@ -149,3 +149,16 @@ font-size: 14px;
     text-decoration: none;
     color: white;
 }
+#cards{
+    width: 23%;
+    border-radius: 5px;
+    padding: 1.5em;
+    box-shadow: 0 0 4px 3px rgb(202, 11, 46); ;
+    margin-bottom: 2em;
+    margin-top: 2em;  
+}
+.view-films{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
