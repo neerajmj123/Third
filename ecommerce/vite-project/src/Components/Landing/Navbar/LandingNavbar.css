@@ -45,3 +45,14 @@ gap: 2rem;
 .action-btn :hover{
     color: white;
 }
+.btn{
+    width: 10%;
+    height: 45px;
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0, -1);
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
