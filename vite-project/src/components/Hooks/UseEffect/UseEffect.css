@@ -1,0 +1,12 @@
+.box{
+    display: flex;
+    border: 2px solid black;
+    justify-content: space-evenly;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 500px;
+    margin-right: 500px;
+    border-radius: 20px;
+    background-color: rgb(157, 238, 211);
+    color: rgb(11, 55, 97);
+}

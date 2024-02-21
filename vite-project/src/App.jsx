@@ -14,7 +14,9 @@
 // import BasicRouting1 from "./components/Router/BasicRouting1"
 // import Parent from "./components/Hooks/Usecallback/Parent"
 // import UseContextApp from "./components/Hooks/UseContext/useContextComponent"
-import UseContextComponent1 from "./components/Hooks/UseContext/UseContextComponent1"
+// import UseContextComponent1 from "./components/Hooks/UseContext/UseContextComponent1"
+// import UseEffectComponent from "./components/Hooks/UseEffect/UseEffectComponent"
+import UseEffectComponent1 from "./components/Hooks/UseEffect/UseEffectCommponent1"
 function App() {
   return (
     <>
@@ -34,7 +36,9 @@ function App() {
       {/* <BasicRouting1/>? */}
       {/* <Parent/> */}
       {/* <UseContextApp/> */}
-      <UseContextComponent1/>
+      {/* <UseContextComponent1/> */}
+      {/* <UseEffectComponent/> */}
+      <UseEffectComponent1/>
     </>
   )
 }

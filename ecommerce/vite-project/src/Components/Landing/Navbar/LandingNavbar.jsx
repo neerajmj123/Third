@@ -1,4 +1,6 @@
 import './LandingNavbar.css'
+import { BrowserRouter as Router,Routes,Route,Link } from "react-router-dom"
+
 function LandingNavbar() {
   return (
     <>
@@ -23,8 +25,7 @@ function LandingNavbar() {
         </a>
       </div>
       <div className='loginbtn'>
-      <button type="submit" className="btn">
-        Login
+      <button type="submit" className="btn"><Link to={'/login'}>Login</Link>
       </button>
       </div>
     </>
