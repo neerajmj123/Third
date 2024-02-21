@@ -22,9 +22,11 @@ function LandingNavbar() {
           Get Started
         </a>
       </div>
+      <div className='loginbtn'>
       <button type="submit" className="btn">
         Login
       </button>
+      </div>
     </>
 
 

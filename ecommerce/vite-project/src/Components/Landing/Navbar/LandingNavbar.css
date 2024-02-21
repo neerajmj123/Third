@@ -56,3 +56,8 @@ gap: 2rem;
     margin-bottom: 20px;
     cursor: pointer;
 }
+.loginbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
