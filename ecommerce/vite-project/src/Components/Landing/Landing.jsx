@@ -1,5 +1,5 @@
 import LandingNavbar from "./Navbar/LandingNavbar"
-import { BrowserRouter as Router,Routes,Route,Link } from "react-router-dom"
+// import { BrowserRouter as Router,Routes,Route,Link } from "react-router-dom"
 // import Login from '../Login/Login'
 import Footer from "./Footer/Footer"
 function Landing(){
@@ -9,11 +9,11 @@ function Landing(){
         <>
         <LandingNavbar/>
         {/* <Login/> */}
-        <Router>
+        {/* <Router>
         <Routes>
             <Route path="/login" exact element ={<Login/>}/>
         </Routes>
-        </Router>
+        </Router> */}
         <Footer/>
         </>
     )
