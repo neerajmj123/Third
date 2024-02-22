@@ -1,0 +1,23 @@
+.calculator{
+    width: 420px;
+    margin:  0 auto;
+    margin-left: 700px;
+    
+}
+.calcscreen{
+    width: 99%;
+    font-size: 16px;
+    height: 40px; 
+    border-radius: 5px;
+
+}
+.calcbtn{
+    display: grid;
+    grid-template-columns: 90px 90px 90px 90px;
+    grid-auto-rows: 80px;
+    gap: 19px;
+    margin-top: 20px; 
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 25px;
+}
