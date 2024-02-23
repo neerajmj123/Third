@@ -21,3 +21,10 @@
     border-radius: 4px;
     font-size: 25px;
 }
+.btn{
+    display: grid;
+    grid-template-columns: 210px 210px;
+    grid-template-rows: 60px;
+    text-align: center;
+    font-size: 18px;
+}

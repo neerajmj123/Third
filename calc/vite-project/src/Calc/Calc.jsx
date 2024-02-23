@@ -1,7 +1,15 @@
 import React,{useState} from "react";
 import './Calc.css'
+
+
+
+
+
+
 const Calc =()=>{
     const[input,setInput] =useState('')
+    const [theme, setTheme] = useState('light');
+
     const handleButtonClick = (value)=>{
         if(value === '='){
             setInput(eval(input).toString())
@@ -11,11 +19,17 @@ const Calc =()=>{
             setInput(input+value)
         }
     }
+    const LightMode =()=>{
+        setTheme('light')
+    }
+    const DarkMode =()=>{
+        setTheme('dark')
+    }
 
     return(
         <>
         <div className="calculator">
-            <input type="text" name="" id=""  className="calcscreen" value={input}/>
+            <input type="text" name="" id=""  className="calcscreen" value={input} readOnly/>
             <div className="calcbtn">
                 <button onClick={() => handleButtonClick('C')}>C</button>
                 <button onClick={() =>handleButtonClick('/')}>/</button>
@@ -33,6 +47,10 @@ const Calc =()=>{
                 <button onClick={() =>handleButtonClick('2')}>2</button>
                 <button onClick={() =>handleButtonClick('3')}>3</button>
                 <button onClick={() =>handleButtonClick('+')}>+</button>
+                <div className="btn">
+                    <button onClick={LightMode}>Dark</button>
+                    <button onClick={DarkMode}>Light</button>
+                </div>
             </div>
         </div>
         </>
